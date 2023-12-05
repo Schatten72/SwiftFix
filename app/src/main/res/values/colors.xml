@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary_background">#FFFFFF</color>
+    <color name="primary_foreground">#000000</color>
+    <color name="button_background">#0790FD</color>
+    <color name="primary_theme">#001275</color>
+    <color name="button_text">#050C38</color>
+    <color name="light_blue">#6BA6FF</color>
+    <color name="light_yellow">#FFD977</color>
+    <color name="home_button_background">#E4DDE2FF</color>
+
+    <color name="pending_color">#FFD700</color> <!-- Yellow -->
+    <color name="completed_color">#008000</color> <!-- Green -->
+    <color name="cannot_be_completed_color">#FF0000</color> <!-- Red -->
+
+</resources>

@@ -1,0 +1,48 @@
+<resources>
+    <!-- GLOBAL -->
+    <string name="app_name">SwiftFix</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_new">Add</string>
+
+    <!-- Main Activity -->
+    <string name="text_subhead_main">On the Fast Lane to Vehicle Care Excellence</string>
+    <string name="text_copyright_main">Powered By ROmega</string>
+    <string name="text_fname_main">First Name</string>
+    <string name="text_lname_main">Last Name</string>
+    <string name="text_mobile_main">Mobile</string>
+    <string name="text_password_main">Password</string>
+    <string name="text_login_main">Login</string>
+    <string name="text_register_main">Register</string>
+    <string name="text_login_redirector_main">Already have an account? Login now!</string>
+    <string name="text_register_redirector_main">Don\'t have an account? Register now!</string>
+
+    <!-- Home Activity -->
+    <string name="welcome_message">Hello, Welcome Username!</string>
+    <string name="app_description">SwiftFix: Your One-Stop Solution for Vehicle Maintenance and Repair Services.</string>
+    <string name="image_slider">Image Slider</string>
+    <string name="report_problem">Report Problem</string>
+    <string name="provide_feedback">Provide Feedback</string>
+    <string name="track_repairman">Track Repairman</string>
+    <string name="view_status">View Status</string>
+    <string name="scrolling_view">scrolling_view</string>
+    <string name="logo2">We are</string>
+
+
+    <!-- Report Problem Activity -->
+    <string name="description_hint">Describe the problem...</string>
+    <string name="attach_image">Attach Image</string>
+    <string name="submit">Submit</string>
+
+    <!-- View Status Activity -->
+    <string name="status_details_placeholder">Status Details: Pending</string>
+    <string name="assign_status">Assign Status: Pending</string>
+    <string name="arrive_status">Arrive Status: Pending</string>
+    <string name="complete_status">Complete Status: Pending</string>
+    <string name="job_number">Job Number: J12345</string>
+    <string name="job_details">Job Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="view_status_details">View Detailed Status</string>
+    <string name="close_popup">Close</string>
+    <string name="add_another_job_note">Note: You can add another job after the current one is completed.</string>
+    <string name="add_location">add_location</string>
+</resources>
