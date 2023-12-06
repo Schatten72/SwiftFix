@@ -71,7 +71,9 @@
                     android:textSize="18sp"
                     android:text="@string/welcome_message"
                     android:textColor="@color/primary_foreground"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+
+                    android:fontFamily="@font/monitorica"/>
 
 
                 <Space
@@ -86,8 +88,11 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/home_button_background"
                     android:drawableTop="@drawable/ic_report_problem"
+                    android:fontFamily="@font/monitorica"
                     android:text="@string/report_problem"
-                    app:iconTint="#1575C1" />
+                    android:textSize="18sp"
+                    app:iconTint="#1575C1"
+                    android:textStyle="bold"/>
 
                 <Button
                     android:id="@+id/buttonViewStatus"
@@ -96,7 +101,10 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/home_button_background"
                     android:drawableTop="@drawable/ic_view_status"
-                    android:text="@string/view_status" />
+                    android:text="@string/view_status"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/monitorica"
+                    android:textStyle="bold"/>
 
                 <Button
                     android:id="@+id/buttonTrackRepairman"
@@ -105,7 +113,10 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/home_button_background"
                     android:drawableTop="@drawable/ic_track_repairman"
-                    android:text="@string/track_repairman" />
+                    android:text="@string/track_repairman"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/monitorica"
+                    android:textStyle="bold"/>
 
                 <Button
                     android:id="@+id/buttonFeedback"
@@ -114,7 +125,10 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/home_button_background"
                     android:drawableTop="@drawable/ic_provide_feedback"
-                    android:text="@string/provide_feedback" />
+                    android:text="@string/provide_feedback"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/monitorica"
+                    android:textStyle="bold"/>
 
                 <Space
                     android:layout_width="match_parent"

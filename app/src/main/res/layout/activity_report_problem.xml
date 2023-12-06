@@ -51,7 +51,6 @@
             <!-- Title -->
 
 
-
             <TextView
                 android:id="@+id/textViewTitle"
                 android:layout_width="186dp"
@@ -59,10 +58,11 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
-
+                android:fontFamily="@font/monitorica"
                 android:text="@string/report_problem"
                 android:textColor="@color/primary_foreground"
-                android:textSize="24sp" />
+                android:textSize="32sp" />
+
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="39dp"
@@ -93,10 +93,26 @@
                 android:layout_marginTop="16dp"
                 android:visibility="gone">
                 <fragment
-                    android:id="@+id/map"
+                    xmlns:tools="http://schemas.android.com/tools"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:name="com.google.android.gms.maps.SupportMapFragment"/>
+                    android:id="@+id/map"
+                    tools:context=".MapActivity"
+                    android:name="com.google.android.gms.maps.SupportMapFragment" />
+                <Button
+                    android:id="@+id/locationSetButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/light_blue"
+                    android:fontFamily="@font/monitorica"
+                    android:text="Set"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
             </FrameLayout>
 
             <Button
@@ -105,8 +121,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/mapContainer"
                 android:layout_centerHorizontal="true"
+                android:fontFamily="@font/monitorica"
                 android:layout_marginTop="16dp"
-                android:text="Select Location" />
+                android:text="Select Location"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/buttonAttachImage"
@@ -118,7 +137,10 @@
                 android:layout_marginEnd="20dp"
                 android:backgroundTint="@color/button_background"
                 android:text="@string/attach_image"
-                android:textColor="@color/white" />
+                android:fontFamily="@font/monitorica"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/buttonSubmit"
@@ -130,6 +152,9 @@
                 android:layout_marginEnd="20dp"
                 android:backgroundTint="@color/button_text"
                 android:text="@string/submit"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/monitorica"
                 android:textColor="@color/white" />
 
         </RelativeLayout>

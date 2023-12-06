@@ -1,5 +1,6 @@
 package com.romega_swiftfix;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -114,6 +115,9 @@ public class AppBar extends Fragment {
 
         map.put(R.id.settings, () -> {
             System.out.println("Settings");
+            // Open the SettingsActivity when "Settings" is clicked
+            Intent intent = new Intent(getContext(), SettingsActivity.class);
+            startActivity(intent);
         });
 
         map.put(R.id.logout, () -> {
@@ -131,6 +135,8 @@ public class AppBar extends Fragment {
                     menuRedirector.redirect();
 
                     return true;
+
+
                 } catch (Exception ex) {
                     return false;
                 }
@@ -158,4 +164,6 @@ public class AppBar extends Fragment {
     interface MenuRedirector {
         void redirect();
     }
+
+
 }

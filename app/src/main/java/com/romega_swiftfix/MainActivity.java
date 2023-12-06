@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentContainerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +20,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setFragment(MainActivity.LOGIN_FRAGMENT);
+
+        // Get the root layout
+        View rootLayout = findViewById(R.id.fragmentContainerView);
+
+        // Load the animation
+        Animation fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+
+        // Apply the animation to the root layout
+        rootLayout.startAnimation(fadeInAnimation);
     }
 
     public void setFragment(int fragmentType) {
