@@ -50,26 +50,26 @@
 
             <!-- Title -->
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="39dp"
-                android:layout_height="49dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="30dp"
-                app:srcCompat="@drawable/ic_report_problem" />
+
 
             <TextView
                 android:id="@+id/textViewTitle"
                 android:layout_width="186dp"
                 android:layout_height="46dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
 
                 android:text="@string/report_problem"
                 android:textColor="@color/primary_foreground"
                 android:textSize="24sp" />
-
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="39dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                app:srcCompat="@drawable/ic_report_problem" />
             <EditText
                 android:id="@+id/editTextProblemDescription"
                 android:layout_width="343dp"

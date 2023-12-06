@@ -14,5 +14,5 @@
     <color name="pending_color">#FFD700</color> <!-- Yellow -->
     <color name="completed_color">#008000</color> <!-- Green -->
     <color name="cannot_be_completed_color">#FF0000</color> <!-- Red -->
-
+    <color name="gold">#FFD700</color>
 </resources>

@@ -68,6 +68,18 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        // Set Feedback button Click Listener
+        Button buttonFeedback = findViewById(R.id.buttonFeedback);
+        buttonFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navigate to Report Problem Activity
+                Intent intent = new Intent(HomeActivity.this, FeedbackActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private RecyclerView setMoviesToRecyclerView(@IdRes int resId) {

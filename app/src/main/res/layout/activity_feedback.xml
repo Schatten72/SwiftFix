@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FeedbackActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView3"
+        android:name="com.romega_swiftfix.AppBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_app_bar" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="com.romega_swiftfix.BottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/fragment_bottom_navigation" />
+
+    <ListView
+        android:id="@+id/listViewJobs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView3"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutJobDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="700dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        android:background="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView3">
+
+
+        <!-- Job Details Views -->
+        <!-- Modify the job details as needed -->
+        <TextView
+            android:id="@+id/textViewJobNumberDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/job_number_details"
+            android:textColor="@color/primary_foreground"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true" />
+
+
+        <TextView
+            android:id="@+id/textViewRepairmanDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewJobNumberDetails"
+            android:layout_marginTop="8dp"
+            android:text="@string/repairman_details"
+            android:textColor="@color/primary_foreground"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/textViewJobDescriptionDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewRepairmanDetails"
+            android:layout_marginTop="8dp"
+            android:text="@string/job_description_details"
+            android:textColor="@color/primary_foreground"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/editTextFeedbackDescriptionDetails"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@id/textViewJobDescriptionDetails"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_description"
+            android:gravity="top"
+            android:hint="@string/feedback_description_hint"
+            android:inputType="textMultiLine"
+            android:padding="8dp"
+            android:textColorHint="#757575"/>
+
+        <RatingBar
+            android:id="@+id/ratingBarDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextFeedbackDescriptionDetails"
+            android:layout_marginTop="16dp"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:numStars="5"
+            android:rating="0"
+            android:progressTint="@color/gold"
+            android:isIndicator="false"
+            android:layout_centerHorizontal="true"/>
+        <Button
+            android:id="@+id/buttonSubmitFeedbackDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ratingBarDetails"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/button_background"
+            android:text="@string/submit_feedback"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"/>
+
+        <!-- Close Popup Button -->
+        <Button
+            android:id="@+id/buttonClosePopup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonSubmitFeedbackDetails"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="Close"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:textColor="@android:color/white"
+            android:padding="8dp"
+            android:clickable="true"
+            android:onClick="closePopup"/>
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
