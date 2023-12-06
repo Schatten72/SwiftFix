@@ -49,24 +49,24 @@ public class BottomNavigation extends Fragment {
             }
         });
 
-        Button buttonSearch = fragment.findViewById(R.id.button6);
-        buttonSearch.setOnClickListener(new View.OnClickListener() {
+        Button buttonAdd = fragment.findViewById(R.id.button6);
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!getActivity().getClass().getName().equals(BottomNavigation.ACTIVITY_SEARCH)) {
-                    // Intent intent = new Intent(fragment.getContext(), );
-                    // startActivity(intent);
+                    Intent intent = new Intent(fragment.getContext(), ProfileActivity.class);
+                    startActivity(intent);
                 }
             }
         });
 
-        Button buttonSetting = fragment.findViewById(R.id.button7);
-        buttonSetting.setOnClickListener(new View.OnClickListener() {
+        Button buttonProfile = fragment.findViewById(R.id.button7);
+        buttonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!getActivity().getClass().getName().equals(BottomNavigation.ACTIVITY_SETTINGS)) {
-                    // Intent intent = new Intent(fragment.getContext(), );
-                    // startActivity(intent);
+                    Intent intent = new Intent(fragment.getContext(), ReportProblemActivity.class);
+                    startActivity(intent);
                 }
             }
         });
