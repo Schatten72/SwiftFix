@@ -57,6 +57,8 @@
     <string name="repairman_details">Repairman: %s</string>
     <string name="job_description_details">Job Description: %s</string>
 
+<!--     Google Web Id-->
+    <string name="web_client_id">254810415843-74nfnub99m5j8nv65a5qtivccjh14n2m.apps.googleusercontent.com</string>
 
     <string-array name="image_sources">
         <item>Camera</item>

@@ -1,9 +1,11 @@
 package com.romega_swiftfix;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,16 +15,40 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+import com.google.android.gms.auth.api.identity.GetSignInIntentRequest;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.IntentSenderRequest;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.gms.auth.api.identity.Identity;
+import com.google.android.gms.auth.api.identity.SignInClient;
+import com.google.android.gms.auth.api.identity.GetSignInIntentRequest;
+import com.google.android.gms.auth.api.identity.Identity;
+import com.google.android.gms.auth.api.identity.SignInClient;
+import com.google.android.gms.auth.api.identity.SignInCredential;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 public class Login extends Fragment {
 
+    public static final String TAG= Login.class.getName();
+    private  FirebaseAuth firebaseAuth;
+    private SignInClient signInClient;
     private static final String PREFS_NAME = "LoginPrefs";
     private static final String PREF_USERNAME = "username";
     private static final String PREF_PASSWORD = "password";
@@ -34,6 +60,8 @@ public class Login extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        firebaseAuth = FirebaseAuth.getInstance();
+        signInClient = Identity.getSignInClient(requireContext());
     }
 
     @Override
@@ -81,23 +109,32 @@ public class Login extends Fragment {
             }
         });
 
-        TextInputLayout passwordTextInputLayout = fragment.findViewById(R.id.passwordTextInputLayout);
-//        EditText passwordEditText = fragment.findViewById(R.id.editTextTextPassword);
-
-        // Toggle password visibility
-        passwordTextInputLayout.setEndIconOnClickListener(new View.OnClickListener() {
+        ////////google signin Btn Function///////
+        fragment.findViewById(R.id.googleSignInButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int inputType = passwordEditText.getInputType();
-                if ((inputType & 0x00000080) > 0) {
-                    // Password field is visible, hide it
-                    passwordEditText.setInputType(inputType | 0x00000081);
-                } else {
-                    // Password field is hidden, show it
-                    passwordEditText.setInputType(inputType & 0x0000007F);
-                }
+         GetSignInIntentRequest signInIntentRequest =  GetSignInIntentRequest.builder()
+                        .setServerClientId(getString(R.string.web_client_id)).build();
+
+                Task<PendingIntent> signInIntent = signInClient.getSignInIntent(signInIntentRequest);
+                signInIntent.addOnSuccessListener(new OnSuccessListener<PendingIntent>() {
+                    @Override
+                    public void onSuccess(PendingIntent pendingIntent) {
+                           IntentSenderRequest intentSenderRequest = new IntentSenderRequest.Builder(pendingIntent)
+                                   .build();
+                           signInLauncher.launch(intentSenderRequest);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
+
+
             }
         });
+
         Button registerButton = fragment.findViewById(R.id.button2);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +143,55 @@ public class Login extends Fragment {
                 mainActivity.setFragment(MainActivity.REGISTER_FRAGMENT);
             }
         });
+
+    }
+////////google signin after result get from launcher///////
+    private final ActivityResultLauncher<IntentSenderRequest> signInLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartIntentSenderForResult(),
+                    new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult o) {
+                    handleSignInResult(o.getData());
+                }
+            });
+
+
+    private void handleSignInResult(Intent intent) {
+
+        try {
+              SignInCredential signInCredential = signInClient.getSignInCredentialFromIntent(intent);
+              String idToken = signInCredential.getGoogleIdToken();
+              firebaseAuthWithGoogle(idToken);
+        }catch (ApiException e){
+            Log.e(TAG, e.getMessage());
+        }
+
+    }
+    private void firebaseAuthWithGoogle(String idToken){
+       AuthCredential authCredential= GoogleAuthProvider.getCredential(idToken,null);
+       Task<AuthResult> authResultTask =  firebaseAuth.signInWithCredential(authCredential);
+       authResultTask.addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+           @Override
+           public void onComplete(@NonNull Task<AuthResult> task) {
+               if (task.isSuccessful()){
+                   FirebaseUser user = firebaseAuth.getCurrentUser();
+                   updateUI(user);
+               }
+           }
+       }).addOnFailureListener(new OnFailureListener() {
+           @Override
+           public void onFailure(@NonNull Exception e) {
+               showToast("Login failed. Please check your credentials.");
+           }
+       });
+    }
+
+    private void updateUI(FirebaseUser user){
+        if(user != null){
+            showToast("Welcome, " + user.getDisplayName() + "!");
+            // Navigate to the home page
+            navigateToHome();
+        }
     }
 
     private boolean validateInput(String email, String password) {

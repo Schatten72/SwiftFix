@@ -12,7 +12,20 @@
           "package_name": "com.romega_swiftfix"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "254810415843-nbfblv43pf86pg3i8v9u55h8aol2ainh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.romega_swiftfix",
+            "certificate_hash": "e5e42c70b1630be1ea9f04d9217aad8f62beb87a"
+          }
+        },
+        {
+          "client_id": "254810415843-74nfnub99m5j8nv65a5qtivccjh14n2m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA7ztPdyqtk4cXgfDuDYkMk2RaiO2EpZ5M"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "254810415843-74nfnub99m5j8nv65a5qtivccjh14n2m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -56,12 +56,7 @@
                 android:textColor="@color/primary_foreground"
                 android:textSize="18sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/passwordTextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/primary_theme">
+
             <EditText
                 android:id="@+id/editTextTextPassword"
                 android:layout_width="match_parent"
@@ -74,7 +69,7 @@
                 android:paddingBottom="13dp"
                 android:textColor="@color/primary_foreground"
                 android:textSize="20sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+
             <CheckBox
                 android:id="@+id/rememberCheckBox"
                 android:layout_width="wrap_content"
