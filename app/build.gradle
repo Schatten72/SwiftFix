@@ -49,8 +49,9 @@ dependencies {
 //fireBase Firestore
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-auth")
-
+    implementation("com.google.firebase:firebase-storage")
     // dependency for the Google Play services library and specify its version
     implementation("com.google.android.gms:play-services-auth:20.7.0")
 
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

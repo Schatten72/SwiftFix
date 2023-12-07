@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ReportProblemActivity">
 
+    <!-- App Bar Fragment -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView3"
         android:name="com.romega_swiftfix.AppBar"
@@ -18,16 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_app_bar" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
-        android:name="com.romega_swiftfix.BottomNavigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout="@layout/fragment_bottom_navigation" />
-
+    <!-- ScrollView to contain the content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -37,6 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView3">
 
+        <!-- Content Layout -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,32 +44,32 @@
             <!-- Title -->
             <TextView
                 android:id="@+id/textViewTitle"
-                android:layout_width="186dp"
-                android:layout_height="46dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/monitorica"
                 android:text="@string/report_problem"
                 android:textColor="@color/primary_foreground"
                 android:textSize="32sp" />
 
+            <!-- Icon -->
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="39dp"
                 android:layout_height="49dp"
+                android:layout_below="@id/textViewTitle"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
                 app:srcCompat="@drawable/ic_report_problem" />
 
+            <!-- Description EditText -->
             <EditText
                 android:id="@+id/editTextProblemDescription"
-                android:layout_width="313dp"
+                android:layout_width="match_parent"
                 android:layout_height="260dp"
-                android:layout_below="@id/textViewTitle"
-                android:layout_marginStart="20dp"
+                android:layout_below="@id/imageView2"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="20dp"
                 android:background="@drawable/ic_description"
                 android:gravity="top"
                 android:hint="@string/description_hint"
@@ -84,67 +77,52 @@
                 android:padding="8dp"
                 android:textColorHint="#757575" />
 
+            <!-- Attach Image Button -->
             <Button
                 android:id="@+id/buttonAttachImage"
-                android:layout_width="293dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/editTextProblemDescription"
-                android:layout_alignStart="@+id/editTextProblemDescription"
-                android:layout_marginStart="1dp"
                 android:layout_marginTop="17dp"
-                android:layout_marginEnd="20dp"
                 android:backgroundTint="@color/button_background"
                 android:fontFamily="@font/monitorica"
                 android:text="@string/attach_image"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/editTextProblemDescription" />
+                android:textStyle="bold" />
 
+            <!-- Selected Image -->
             <ImageView
                 android:id="@+id/imageViewSelected"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_below="@id/buttonAttachImage"
                 android:layout_marginTop="16dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:contentDescription="TODO"
-                android:visibility="gone"
-                app:layout_constraintTop_toBottomOf="@id/buttonAttachImage"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:visibility="gone" />
 
+            <!-- Select Location Button -->
             <Button
                 android:id="@+id/buttonSelectLocation"
-                android:layout_width="280dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/mapContainer"
-                android:layout_alignStart="@+id/editTextProblemDescription"
-                android:layout_marginStart="1dp"
+                android:layout_below="@id/imageViewSelected"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="#34A638"
                 android:fontFamily="@font/monitorica"
                 android:foregroundTint="#3BB140"
-                android:text="Select Location"
+                android:text="@string/add_location"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/mapContainer" />
+                android:textStyle="bold" />
 
+            <!-- Map Container -->
             <FrameLayout
                 android:id="@+id/mapContainer"
                 android:layout_width="match_parent"
-                android:layout_height="450dp"
-                android:layout_below="@id/imageViewSelected"
+                android:layout_height="500dp"
+                android:layout_below="@id/buttonSelectLocation"
                 android:layout_marginTop="16dp"
-                android:visibility="gone"
-                app:layout_constraintTop_toBottomOf="@id/imageViewSelected"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:visibility="gone">
                 <fragment
                     xmlns:tools="http://schemas.android.com/tools"
                     android:layout_width="match_parent"
@@ -152,43 +130,46 @@
                     android:id="@+id/map"
                     tools:context=".MapActivity"
                     android:name="com.google.android.gms.maps.SupportMapFragment" />
-                <Button
-                    android:id="@+id/locationSetButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:backgroundTint="@color/light_blue"
-                    android:fontFamily="@font/monitorica"
-                    android:text="Set"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
             </FrameLayout>
 
+            <!-- Problem Policy TextView -->
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mapContainer"
+                android:layout_marginTop="16dp"
+                android:text="@string/problem_policy"
+                android:textColor="#F32F2F"
+                android:textStyle="bold"
+              />
+
+            <!-- Submit Button -->
             <Button
                 android:id="@+id/buttonSubmit"
-                android:layout_width="305dp"
+                android:layout_width="match_parent"
                 android:layout_height="58dp"
-                android:layout_below="@id/buttonSelectLocation"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="120dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="17dp"
+                android:layout_below="@id/textView12"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/button_text"
                 android:fontFamily="@font/monitorica"
                 android:text="@string/submit"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonSelectLocation" />
+                android:textStyle="bold" />
 
         </RelativeLayout>
     </ScrollView>
+
+    <!-- Bottom Navigation Fragment -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="com.romega_swiftfix.BottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/fragment_bottom_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

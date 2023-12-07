@@ -55,10 +55,10 @@ public class HomeActivity extends AppCompatActivity {
         // Set initial alpha to 0 (completely transparent)
         welcomeMessage.setAlpha(0f);
 
-        // Animate the alpha property to 1 (fully opaque)
+
         welcomeMessage.animate()
                 .alpha(1f)
-                .setDuration(3000) // Animation duration in milliseconds
+                .setDuration(3000)
                 .start();
 
         // Set Report Problem Button Click Listener
