@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/imageViewJobImage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_background"
@@ -34,8 +34,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="8dp"
@@ -74,12 +74,13 @@
             <!-- Detailed Status Popup Trigger -->
 
             <!-- Detailed Status Popup -->
+
             <TextView
                 android:id="@+id/textViewStatusPopupTrigger"
                 android:layout_width="343dp"
                 android:layout_height="73dp"
                 android:layout_below="@id/textViewJobDetails"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="239dp"
                 android:clickable="true"
                 android:onClick="showStatusPopup"
                 android:text="@string/view_status_details"
@@ -157,15 +158,27 @@
                     android:layout_height="wrap_content"
 
                     android:layout_below="@id/textViewCompleteStatus"
-                    android:layout_marginTop="26dp"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginTop="26dp"
                     android:background="@color/button_background"
-                    android:text="@string/close_popup"
-                    android:textColor="@color/white"
-                    android:padding="8dp"
                     android:clickable="true"
-                    android:onClick="closeStatusPopup"/>
+                    android:onClick="closeStatusPopup"
+                    android:padding="8dp"
+                    android:text="@string/close_popup"
+                    android:textColor="@color/white" />
             </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="209dp"
+                android:layout_height="226dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="99dp"
+                android:layout_marginEnd="109dp"
+                tools:srcCompat="@tools:sample/avatars" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
