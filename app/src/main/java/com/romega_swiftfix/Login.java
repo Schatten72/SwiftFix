@@ -181,14 +181,15 @@ public class Login extends Fragment {
        }).addOnFailureListener(new OnFailureListener() {
            @Override
            public void onFailure(@NonNull Exception e) {
-               showToast("Login failed. Please check your credentials.");
+               showToast("Google Sign-In failed. Please try again.");
+
            }
        });
     }
 
     private void updateUI(FirebaseUser user){
         if(user != null){
-            showToast("Welcome, " + user.getDisplayName() + "!");
+            showToast("Welcome, " + user.getDisplayName() + "! to SwiftFix");
             // Navigate to the home page
             navigateToHome();
         }
@@ -219,7 +220,7 @@ public class Login extends Fragment {
                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                         if (user != null && user.isEmailVerified()) {
                             // Email is verified, and login is successful
-                            showToast("Welcome, " + user.getDisplayName() + "!");
+                            showToast("Welcome, " + user.getDisplayName() + "! to SwiftFix");
                             // Navigate to the home page
                             navigateToHome();
                         } else {

@@ -1,6 +1,7 @@
 package com.romega_swiftfix.model;
 
 public class User {
+    private String uid;
     private String firstName;
     private String lastName;
 

@@ -103,8 +103,6 @@ public class Register extends Fragment {
             return false;
         }
 
-        // Add more validation rules as needed
-
         return true;
     }
 
@@ -131,7 +129,7 @@ public class Register extends Fragment {
                                     .addOnCompleteListener(profileUpdateTask -> {
                                         if (profileUpdateTask.isSuccessful()) {
                                             // Display name set successfully
-                                            // Now add additional user data to Firestore
+
                                             addUserDataToFirestore(user);
                                         } else {
                                             // Display name set failed
@@ -142,7 +140,7 @@ public class Register extends Fragment {
 
                     } else {
                         // Registration failed
-                        // Handle the error, e.g., show an error message
+
                         showToast("Registration failed. Please try again.");
                     }
                 });

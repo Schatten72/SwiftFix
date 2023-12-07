@@ -31,7 +31,7 @@
 
     <!-- Report Problem Activity -->
     <string name="description_hint">Describe the problem...</string>
-    <string name="attach_image">Add An Image</string>
+    <string name="attach_image">Add An Image/Edit Image</string>
     <string name="submit">Submit</string>
 
     <!-- View Status Activity -->

@@ -117,10 +117,28 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+            <Button
+                android:id="@+id/buttonSelectLocation"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mapContainer"
+                android:layout_alignStart="@+id/editTextProblemDescription"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#34A638"
+                android:fontFamily="@font/monitorica"
+                android:foregroundTint="#3BB140"
+                android:text="Select Location"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mapContainer" />
+
             <FrameLayout
                 android:id="@+id/mapContainer"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="450dp"
                 android:layout_below="@id/imageViewSelected"
                 android:layout_marginTop="16dp"
                 android:visibility="gone"
@@ -151,31 +169,13 @@
             </FrameLayout>
 
             <Button
-                android:id="@+id/buttonSelectLocation"
-                android:layout_width="299dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/mapContainer"
-                android:layout_alignStart="@+id/editTextProblemDescription"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="#34A638"
-                android:fontFamily="@font/monitorica"
-                android:foregroundTint="#3BB140"
-                android:text="Select Location"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/mapContainer" />
-
-            <Button
                 android:id="@+id/buttonSubmit"
                 android:layout_width="305dp"
                 android:layout_height="58dp"
                 android:layout_below="@id/buttonSelectLocation"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="170dp"
+                android:layout_marginTop="120dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="17dp"
                 android:backgroundTint="@color/button_text"
