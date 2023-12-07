@@ -26,18 +26,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monitorica"
-                android:text="@string/text_mobile_main"
+                android:text="@string/text_email_main"
                 android:textColor="@color/primary_foreground"
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editTextPhone"
+                android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="@font/monitorica"
-                android:hint="Enter your mobile"
-                android:inputType="phone"
+                android:hint="Enter your Email"
+                android:inputType="textEmailAddress"
                 android:paddingTop="13dp"
                 android:paddingBottom="13dp"
                 android:textColor="@color/primary_foreground"
@@ -56,6 +56,12 @@
                 android:textColor="@color/primary_foreground"
                 android:textSize="18sp" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/primary_theme">
             <EditText
                 android:id="@+id/editTextTextPassword"
                 android:layout_width="match_parent"
@@ -68,7 +74,15 @@
                 android:paddingBottom="13dp"
                 android:textColor="@color/primary_foreground"
                 android:textSize="20sp" />
-
+            </com.google.android.material.textfield.TextInputLayout>
+            <CheckBox
+                android:id="@+id/rememberCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Remember Me"
+                android:textColor="@color/primary_foreground"
+                android:textSize="16sp" />
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="24dp" />
@@ -83,7 +97,31 @@
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 app:cornerRadius="5dp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="24dp" />
 
+            <!-- Google Sign-In Button -->
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foregroundTint="#DF4C4C"
+                android:text="OR"
+                android:textStyle="bold"
+                android:fontFamily="@font/monitorica"
+                android:textSize="16sp"
+                android:gravity="center"
+                />
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/googleSignInButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/monitorica"
+                android:textSize="24sp"
+                android:layout_marginTop="16dp" />
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
@@ -98,9 +136,11 @@
                 android:paddingRight="0dp"
                 android:text="@string/text_register_redirector_main"
                 android:textAlignment="textStart"
-                android:textColor="@color/light_blue"
+                android:textColor="@color/cannot_be_completed_color"
                 android:textSize="18sp"
-                app:cornerRadius="0dp" />
+                app:cornerRadius="0dp"
+                android:textStyle="bold"/>
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

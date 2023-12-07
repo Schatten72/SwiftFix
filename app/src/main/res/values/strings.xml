@@ -10,7 +10,7 @@
     <string name="text_copyright_main">Powered By ROmega</string>
     <string name="text_fname_main">First Name</string>
     <string name="text_lname_main">Last Name</string>
-    <string name="text_mobile_main">Mobile</string>
+    <string name="text_email_main">Email</string>
     <string name="text_password_main">Password</string>
     <string name="text_login_main">Login</string>
     <string name="text_register_main">Register</string>
@@ -19,7 +19,7 @@
 
     <!-- Home Activity -->
     <string name="welcome_message">Hello, Welcome Username!</string>
-    <string name="app_description">SwiftFix: Your One-Stop Solution for Vehicle Maintenance and Repair Services.</string>
+    <string name="app_description">SwiftFix: Your One-Stop Solution for Vehicle Maintenance and Repair Services Provider.</string>
     <string name="image_slider">Image Slider</string>
     <string name="report_problem">Report Problem</string>
     <string name="provide_feedback">Provide Feedback</string>
@@ -31,7 +31,7 @@
 
     <!-- Report Problem Activity -->
     <string name="description_hint">Describe the problem...</string>
-    <string name="attach_image">Attach Image</string>
+    <string name="attach_image">Add An Image</string>
     <string name="submit">Submit</string>
 
     <!-- View Status Activity -->
@@ -56,4 +56,10 @@
     <string name="job_number_details">Job Number: %s</string>
     <string name="repairman_details">Repairman: %s</string>
     <string name="job_description_details">Job Description: %s</string>
+
+
+    <string-array name="image_sources">
+        <item>Camera</item>
+        <item>Gallery</item>
+    </string-array>
 </resources>

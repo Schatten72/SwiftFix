@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentContainerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class MainActivity extends AppCompatActivity {
 
-
+public static final String TAG = MainActivity.class.getName();
     public static final int LOGIN_FRAGMENT = 1;
     public static final int REGISTER_FRAGMENT = 2;
 
@@ -29,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Apply the animation to the root layout
         rootLayout.startAnimation(fadeInAnimation);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Log.i(TAG,db.toString());
+
+        FirebaseApp.initializeApp(this);
+
     }
 
     public void setFragment(int fragmentType) {
@@ -44,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.fragmentContainerView, fragmentClass, null)
+                    .replace(R.id.fragmentContainerView, fragmentClass, null)
                     .commit();
         } catch (NullPointerException ex) {
             ex.printStackTrace();

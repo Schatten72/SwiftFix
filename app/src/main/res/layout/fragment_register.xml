@@ -78,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monitorica"
-                android:text="@string/text_mobile_main"
+                android:text="@string/text_email_main"
                 android:textColor="@color/primary_foreground"
                 android:textSize="18sp" />
 
@@ -88,8 +88,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="@font/monitorica"
-                android:hint="Enter your mobile"
-                android:inputType="phone"
+                android:hint="Enter your email"
+                android:inputType="textEmailAddress"
                 android:paddingTop="13dp"
                 android:paddingBottom="13dp"
                 android:textColor="@color/primary_foreground"
@@ -107,6 +107,8 @@
                 android:text="@string/text_password_main"
                 android:textColor="@color/primary_foreground"
                 android:textSize="18sp" />
+
+
 
             <EditText
                 android:id="@+id/editTextTextPassword2"
@@ -150,9 +152,10 @@
                 android:paddingRight="0dp"
                 android:text="@string/text_login_redirector_main"
                 android:textAlignment="textStart"
-                android:textColor="@color/light_blue"
+                android:textColor="@color/cannot_be_completed_color"
                 android:textSize="18sp"
-                app:cornerRadius="0dp" />
+                app:cornerRadius="0dp"
+                android:textStyle="bold"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

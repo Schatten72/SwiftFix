@@ -138,9 +138,10 @@
                     android:id="@+id/textAppDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:text="@string/app_description"
-                    android:textColor="@color/primary_foreground"
+                    android:textColor="@color/primary_theme"
+                    android:fontFamily="@font/monitorica"
                     android:layout_gravity="center_horizontal"/>
 
                 <Space
