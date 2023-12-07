@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "254810415843",
+    "project_id": "swiftfix-e2f38",
+    "storage_bucket": "swiftfix-e2f38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:254810415843:android:018af49d49461aae19dbd6",
+        "android_client_info": {
+          "package_name": "com.romega_swiftfix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7ztPdyqtk4cXgfDuDYkMk2RaiO2EpZ5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
