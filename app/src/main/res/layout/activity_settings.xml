@@ -101,7 +101,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchDarkMode">
+        app:layout_constraintTop_toBottomOf="@+id/switchDarkMode"
+        android:onClick="makeCall">
 
         <ImageView
             android:layout_width="24dp"
@@ -113,8 +114,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="8dp"
-            android:text="Help Center"
+            android:text="Help Center - Call Now"
             android:textSize="18sp" />
+
+        <!-- Add the button for making a call -->
+
     </LinearLayout>
 
     <Switch
@@ -145,6 +149,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutPrivacyPolicy"
         app:layout_constraintVertical_bias="0.0" />
+
+
+
 
     <ImageView
         android:id="@+id/imageView7"

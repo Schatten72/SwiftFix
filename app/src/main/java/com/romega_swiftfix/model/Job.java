@@ -8,6 +8,17 @@ public class Job {
     private String userEmail;
     private String imageUrl;
 
+    private Object timestamp;
+
+
+
+    public Object getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Object timestamp) {
+        this.timestamp = timestamp;
+    }
     public String getImageUrl() {
         return imageUrl;
     }
@@ -69,5 +80,7 @@ public class Job {
         this.longitude = longitude;
         this.userEmail = userEmail;
     }
-
+    public String getJobId() {
+        return jobNumber; // JobNumber serves as the job ID
+    }
 }

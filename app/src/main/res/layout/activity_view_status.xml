@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/imageViewJobImage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_background"
@@ -34,8 +34,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="8dp"
@@ -60,15 +60,6 @@
                 android:textStyle="bold" />
 
             <!-- Job Details -->
-            <TextView
-                android:id="@+id/textViewJobDetails"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textViewJobNumber"
-                android:layout_marginTop="8dp"
-                android:text="@string/job_details"
-                android:textColor="@color/primary_foreground"
-                android:textSize="18sp" />
 
 
             <!-- Detailed Status Popup Trigger -->
@@ -77,15 +68,39 @@
 
             <TextView
                 android:id="@+id/textViewStatusPopupTrigger"
-                android:layout_width="343dp"
-                android:layout_height="73dp"
+                android:layout_width="354dp"
+                android:layout_height="75dp"
                 android:layout_below="@id/textViewJobDetails"
-                android:layout_marginTop="239dp"
+                android:layout_marginTop="16dp"
                 android:clickable="true"
                 android:onClick="showStatusPopup"
                 android:text="@string/view_status_details"
                 android:textColor="@color/button_background"
                 android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewJobDetails"
+                android:layout_width="339dp"
+                android:layout_height="84dp"
+                android:layout_below="@id/textViewJobNumber"
+                android:layout_marginTop="56dp"
+                android:text="@string/job_details"
+                android:textColor="@color/primary_foreground"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewJobAddedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="41dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="@color/primary_theme"
+                android:textSize="18sp"
+                tools:text="" />
 
             <RelativeLayout
                 android:id="@+id/relativeLayoutStatusPopup"
@@ -117,37 +132,27 @@
                     android:textColor="@color/primary_foreground"
                     android:textSize="18sp" />
 
-                <!-- Assign Status -->
-                <TextView
-                    android:id="@+id/textViewAssignStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/textViewStatusDetails"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/assign_status"
-                    android:textColor="@color/primary_foreground"
-                    android:textSize="18sp" />
-
-                <!-- Arrive Status -->
-                <TextView
-                    android:id="@+id/textViewArriveStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/textViewAssignStatus"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/arrive_status"
-                    android:textColor="@color/primary_foreground"
-                    android:textSize="18sp" />
 
                 <!-- Complete Status -->
                 <TextView
                     android:id="@+id/textViewCompleteStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/textViewArriveStatus"
+                    android:layout_below="@id/textViewStatusDetails"
                     android:layout_marginTop="16dp"
                     android:text="@string/complete_status"
                     android:textColor="@color/primary_foreground"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/textViewCompleteStatustime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewCompleteStatus"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/complete_status"
+                    android:textColor="@color/primary_theme"
                     android:textSize="18sp" />
 
 
@@ -157,28 +162,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:layout_below="@id/textViewCompleteStatus"
+                    android:layout_below="@id/textViewCompleteStatustime"
+                    android:layout_marginTop="36dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="26dp"
                     android:background="@color/button_background"
-                    android:clickable="true"
-                    android:onClick="closeStatusPopup"
-                    android:padding="8dp"
                     android:text="@string/close_popup"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:onClick="closeStatusPopup"/>
             </RelativeLayout>
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="209dp"
-                android:layout_height="226dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="76dp"
-                android:layout_marginTop="99dp"
-                android:layout_marginEnd="109dp"
-                tools:srcCompat="@tools:sample/avatars" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

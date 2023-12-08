@@ -52,62 +52,14 @@ public class AppBar extends Fragment {
         });
     }
 
-//    @Override
-//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-//        super.onCreateOptionsMenu(menu, inflater);
-//        map = new HashMap<>();
-//
-//        map.put(R.id.searchMovie, () -> {
-//            System.out.println("Search Movie");
-//        });
-//
-//        map.put(R.id.buyTickets, () -> {
-//            System.out.println("Buy Tickets");
-//        });
-//
-//        map.put(R.id.settings, () -> {
-//            System.out.println("Settings");
-//        });
-//
-//        map.put(R.id.logout, () -> {
-//            System.out.println("Logout");
-//        });
-//
-//        inflater.inflate(R.menu.main_menu, menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        try {
-//            map.get(item.getItemId());
-//            return true;
-//        } catch (Exception ex) {
-//            return super.onOptionsItemSelected(item);
-//        }
-//    }
 
-    /**
-     * createMenu() method creates a PopupMenu object from given menu as
-     * a menu resource.
-     *
-     * @param fragment the fragment which opens the menu
-     * @param menuRes a xml menu resource to inflate the design
-     * @return PopupMenu Object
-     *
-     * By default, this method creates the menu with End Gravity
-     */
     private PopupMenu createMenu(@NonNull View fragment,@NonNull @MenuRes int menuRes) {
         PopupMenu menu = new PopupMenu(getContext(), fragment, Gravity.END);
         menu.inflate(menuRes);
         return menu;
     }
 
-    /**
-     * setMenuAction() method sets action to each menu item.
-     *
-     * @param menu the menu which is already created as a PopupMenu object
-     * @return PopupMenu Object which is modified by this method
-     */
+
     private PopupMenu setMenuAction(PopupMenu menu) {
         Map<Integer, MenuRedirector> map = new HashMap<>();
 
@@ -146,13 +98,7 @@ public class AppBar extends Fragment {
         return menu;
     }
 
-    /**
-     * setNavigationBar() method set this bottom navigation bar into activity
-     * which is calling the method.
-     *
-     * @param fragmentManager denotes supported fragment manager
-     * @param containerViewId denotes fragment container resource id
-     */
+
     public static void setAppBar(@NonNull FragmentManager fragmentManager,
                                         @NonNull @IdRes int containerViewId) {
         fragmentManager

@@ -14,12 +14,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 public class BottomNavigation extends Fragment {
-    private static final String ACTIVITY_HOME = "com.aadhil.cineworlddigital.HomeActivity";
-    private static final String ACTIVITY_SEARCH = "com.aadhil.cineworlddigital.SearchActivity";
-    private static final String ACTIVITY_SETTINGS = "com.aadhil.cineworlddigital.SettingsActivity";
+    private static final String ACTIVITY_HOME = "com.romega_swiftfix.HomeActivity";
+    private static final String ACTIVITY_SEARCH = "com.romega_swiftfix.SearchActivity";
+    private static final String ACTIVITY_SETTINGS = "com.romega_swiftfix.SettingsActivity";
 
     public BottomNavigation() {
-        // Required empty public constructor
+        // public constructor
     }
 
     @Override
@@ -72,13 +72,7 @@ public class BottomNavigation extends Fragment {
         });
     }
 
-    /**
-     * setNavigationBar() method set this bottom navigation bar into activity
-     * which is calling the method.
-     *
-     * @param fragmentManager denotes supported fragment manager
-     * @param containerViewId denotes fragment container resource id
-     */
+
     public static void setNavigationBar(@NonNull FragmentManager fragmentManager,
                                  @NonNull @IdRes int containerViewId) {
         fragmentManager

@@ -24,7 +24,7 @@ public class Register extends Fragment {
     private FirebaseFirestore db;
 
     public Register() {
-        // Required empty public constructor
+        // empty public constructor
     }
 
     @Override

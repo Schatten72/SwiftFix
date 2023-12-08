@@ -2,7 +2,6 @@ package com.romega_swiftfix;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -13,12 +12,14 @@ import androidx.cardview.widget.CardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
+import com.romega_swiftfix.model.Assignment;
 import com.romega_swiftfix.model.Job;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Objects;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Map;
+
 public class ViewStatusActivity extends AppCompatActivity implements View.OnClickListener {
 
     private CardView cardViewStatus;
@@ -26,11 +27,10 @@ public class ViewStatusActivity extends AppCompatActivity implements View.OnClic
     private RelativeLayout relativeLayoutStatusPopup;
     private TextView textViewClosePopup;
 
-
     // Firebase
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firestore;
-    private FirebaseStorage storage;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +38,7 @@ public class ViewStatusActivity extends AppCompatActivity implements View.OnClic
 
         firebaseAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
-        storage = FirebaseStorage.getInstance();
+
         // Initialize views
         cardViewStatus = findViewById(R.id.cardViewStatus);
         textViewStatusPopupTrigger = findViewById(R.id.textViewStatusPopupTrigger);
@@ -48,6 +48,7 @@ public class ViewStatusActivity extends AppCompatActivity implements View.OnClic
         // Set click listeners
         textViewStatusPopupTrigger.setOnClickListener(this);
         textViewClosePopup.setOnClickListener(this);
+
         // Fetch and display job data
         fetchAndDisplayJobData();
     }
@@ -69,34 +70,89 @@ public class ViewStatusActivity extends AppCompatActivity implements View.OnClic
         // Assuming you have a 'jobs' collection in Firestore
         firestore.collection("jobs")
                 .whereEqualTo("userEmail", userEmail)
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        for (DocumentSnapshot document : task.getResult()) {
-                            // Convert the document to a Job object
-                            Job job = document.toObject(Job.class);
-                            // Now you can use the 'job' object to update your UI
-                            updateUIWithJobData(job);
-                        }
-                    } else {
-                        // Handle errors
+                .addSnapshotListener((value, error) -> {
+                    if (error != null) {
+
+                        return;
+                    }
+
+                    for (DocumentSnapshot document : value) {
+                        // Convert the document to a Job object
+                        Job job = document.toObject(Job.class);
+
+                        updateUIWithJobData(job);
+
+                        fetchAndDisplayAssignmentData(job.getJobId());
                     }
                 });
     }
 
+    private void fetchAndDisplayAssignmentData(String jobId) {
+        // Assuming you have an 'assignments' collection in Firestore
+        firestore.collection("assignments")
+                .whereEqualTo("jobId", jobId)
+                .addSnapshotListener((value, error) -> {
+                    if (error != null) {
+
+                        return;
+                    }
+                    for (DocumentSnapshot document : value) {
+                        // Convert the document to an Assignment object
+                        Assignment assignment = document.toObject(Assignment.class);
+
+                        updateUIWithAssignmentData(assignment);
+                    }
+                });
+    }
+
+    private void updateUIWithAssignmentData(Assignment assignment) {
+        // Update your UI elements with assignment data
+        if (assignment != null) {
+
+            TextView textViewStatusDetails = findViewById(R.id.textViewStatusDetails);
+            textViewStatusDetails.setText("Details: " + assignment.getDetails());
+
+            TextView textViewStatus = findViewById(R.id.textViewCompleteStatus);
+            textViewStatus.setText("Status: " + assignment.getStatus());
+
+            TextView textViewStatustime = findViewById(R.id.textViewCompleteStatustime);
+            textViewStatustime.setText("Time: " + assignment.getAssignmentTime());
+
+            // You can similarly update other UI elements with assignment data
+        }
+    }
+
     private void updateUIWithJobData(Job job) {
-        // Here, you can update your UI elements with the job data
-        // For example, you can set text to TextViews, load images, etc.
+
         if (job != null) {
             // Example: set job number to a TextView
             TextView textViewJobNumber = findViewById(R.id.textViewJobNumber);
-            textViewJobNumber.setText("JOB "+job.getJobNumber());
+            textViewJobNumber.setText("JOB " + job.getJobNumber());
             // Set job description to a TextView
             TextView textViewJobDetails = findViewById(R.id.textViewJobDetails);
             textViewJobDetails.setText(job.getDescription());
 
+            // Retrieve timestamp as Object
+            Object timestampObject = job.getTimestamp();
 
+            if (timestampObject instanceof Map) {
+                // Cast to Map and get the value for ".sv"
+                Map<String, Object> timestampMap = (Map<String, Object>) timestampObject;
+                Object svValue = timestampMap.get(".sv");
+
+                if (svValue instanceof String && ((String) svValue).equals("timestamp")) {
+                    // This is a placeholder for server timestamp, you may want to set a default value
+                    Date timestampDate = new Date();
+
+                    // Format the date as needed (e.g., using SimpleDateFormat)
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                    String formattedTimestamp = dateFormat.format(timestampDate);
+
+                    // Set the formatted timestamp to the TextView
+                    TextView textViewJobTimestamp = findViewById(R.id.textViewJobAddedTime);
+                    textViewJobTimestamp.setText("Added on: " + formattedTimestamp);
+                }
+            }
         }
     }
-
 }

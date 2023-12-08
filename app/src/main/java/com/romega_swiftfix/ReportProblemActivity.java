@@ -50,6 +50,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
+import com.google.firebase.database.ServerValue;
 
 public class ReportProblemActivity extends AppCompatActivity implements OnMapReadyCallback {
     private boolean isManualLocationSelection = false;
@@ -155,9 +156,6 @@ private String getJobDescription() {
             // Get the user's email
             String userEmail = firebaseAuth.getCurrentUser().getEmail();
 
-            // Upload the image to Firebase Storage
-            uploadImageToStorage(jobNumber);
-
             // Create a Job object with relevant details
             Job job = new Job(
                     jobNumber,
@@ -166,7 +164,11 @@ private String getJobDescription() {
                     selectedLocation.longitude,
                     userEmail
             );
+            // Set timestamp
+            job.setTimestamp(ServerValue.TIMESTAMP);
 
+            // Upload the image to Firebase Storage
+            uploadImageToStorage(job);
             // Add the job to Firestore
             addJobToFirestore(job);
         } else {
@@ -181,7 +183,7 @@ private String getJobDescription() {
         return String.valueOf(System.currentTimeMillis()) + new Random().nextInt(1000);
     }
 
-    private void uploadImageToStorage(String jobNumber) {
+    private void uploadImageToStorage(final Job job) {
         // Get the ImageView as a Bitmap
         imageViewSelected.setDrawingCacheEnabled(true);
         imageViewSelected.buildDrawingCache();
@@ -193,7 +195,7 @@ private String getJobDescription() {
         byte[] data = baos.toByteArray();
 
         // Define the storage path
-        String storagePath = "images/" + jobNumber + ".jpg";
+        String storagePath = "images/" + job.getJobNumber()  + ".jpg";
 
         // Upload the image to Firebase Storage
         StorageReference imageRef = storageReference.child(storagePath);
@@ -205,6 +207,22 @@ private String getJobDescription() {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 // Image upload success
                 showToast("Image uploaded successfully");
+                // Get the download URL of the uploaded image
+                imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        // Set the image URL in the Job object
+                        job.setImageUrl(uri.toString());
+
+                        // After obtaining the image URL, add the job to Firestore
+                        addJobToFirestore(job);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        showToast("Error getting image URL: " + e.getMessage());
+                    }
+                });
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

@@ -37,12 +37,10 @@
 
     <!-- View Status Activity -->
     <string name="status_details_placeholder">Status Details: Pending</string>
-    <string name="assign_status">Assign Status: Pending</string>
-    <string name="arrive_status">Arrive Status: Pending</string>
-    <string name="complete_status">Complete Status: Pending</string>
+    <string name="complete_status">Status: Pending</string>
     <string name="job_number">Job Number: J12345</string>
     <string name="job_details">Job Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
-    <string name="view_status_details">View Detailed Status</string>
+    <string name="view_status_details">Check Status</string>
     <string name="close_popup">Close</string>
     <string name="add_another_job_note">Note: You can add another job after the current one is completed.</string>
     <string name="add_location">Add Location</string>
