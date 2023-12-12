@@ -79,7 +79,7 @@ public static final String TAG = MainActivity.class.getName();
     // Implement the onShake method
     @Override
     public void onShake() {
-        showToast("SwiftFix Closed due to shake");
+        showToast("SwiftFix closed due to device Interuption");
         showNotification("SwiftFix", "App Interrupted Unexpectedly");
         finish();
     }

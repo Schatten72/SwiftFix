@@ -100,8 +100,8 @@ public class FeedbackActivity extends AppCompatActivity {
                                 // Get jobId and add it to the list
                                 String repairmanId = document.getString("repairmanId");
                                 String jobDescription = document.getString("details");
-                                // Fetch repairman's name using repairmanId
 
+                                // Fetch repairman's name using repairmanId
                                 String jobId = document.getString("jobId");
                                 fetchRepairmanName(repairmanId, jobId, jobDescription);
                                 completedJobs.add("Job #" + jobId);
@@ -111,7 +111,7 @@ public class FeedbackActivity extends AppCompatActivity {
                             ArrayAdapter<String> adapter = new ArrayAdapter<>(FeedbackActivity.this, android.R.layout.simple_list_item_1, completedJobs);
                             listViewJobs.setAdapter(adapter);
                         } else {
-                            // Handle errors
+                            //  errors
                         }
                     }
                 });

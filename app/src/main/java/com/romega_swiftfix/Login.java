@@ -190,7 +190,7 @@ public class Login extends Fragment {
     private void updateUI(FirebaseUser user){
         if(user != null){
             showToast("Welcome, " + user.getDisplayName() + "! to SwiftFix");
-            // Navigate to the home page
+
             navigateToHome();
         }
     }
@@ -206,7 +206,6 @@ public class Login extends Fragment {
             return false;
         }
 
-        // Add more validation rules as needed
 
         return true;
     }
@@ -229,7 +228,7 @@ public class Login extends Fragment {
                         }
                     } else {
                         // Login failed
-                        // Handle the error, e.g., show an error message
+
                         showToast("Login failed. Please check your credentials.");
                     }
                 });
@@ -249,9 +248,8 @@ public class Login extends Fragment {
     }
 
     private void navigateToHome() {
-        // Assuming MainActivity has a method to navigate to the home page
         Intent intent = new Intent(getActivity(), HomeActivity.class);
         startActivity(intent);
-        getActivity().finish(); // Close the current activity if needed
+        getActivity().finish(); // Close the current activity
     }
 }

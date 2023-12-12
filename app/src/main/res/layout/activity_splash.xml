@@ -6,4 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".SplashActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Add your logo image -->
+
+        <!-- Add your app name or other branding if needed -->
+
+        <ImageView
+            android:id="@+id/imageViewLogo"
+            android:layout_width="225dp"
+            android:layout_height="144dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="95dp"
+            android:layout_marginTop="238dp"
+            android:layout_marginEnd="89dp"
+            android:contentDescription="App Logo"
+            android:src="@drawable/logo_background" />
+
+        <TextView
+            android:id="@+id/textViewAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageViewLogo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="Welcome to SwiftFix"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="63dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewAppName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:indeterminateTint="#070927"
+            android:progressBackgroundTint="#16277E"
+            android:visibility="visible" />
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

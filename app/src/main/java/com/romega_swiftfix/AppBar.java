@@ -23,7 +23,7 @@ import java.util.Map;
 public class AppBar extends Fragment {
 
     public AppBar() {
-        // Required empty public constructor
+
     }
 
     @Override

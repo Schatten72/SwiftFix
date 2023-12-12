@@ -38,7 +38,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void makeCall(View view) {
 
-        String phoneNumber = "tel:" + "0714489300";
+        String phoneNumber = "tel:" + "0714489500";
 
         // Create the intent with ACTION_DIAL
         Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri.parse(phoneNumber));

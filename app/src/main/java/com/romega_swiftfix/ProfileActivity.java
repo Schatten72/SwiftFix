@@ -34,7 +34,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private EditText firstNameEditText;
     private EditText lastNameEditText;
-    private EditText emailEditText; // You might want to display the email but not allow editing
+    private EditText emailEditText;
     private EditText passwordEdit;
 
     private FirebaseAuth firebaseAuth;
@@ -145,33 +145,34 @@ public class ProfileActivity extends AppCompatActivity {
         lastNameEditText.setEnabled(false);
         emailEditText.setEnabled(false);
         passwordEdit.setEnabled(false);
-        // Disable other UI components as needed
+
     }
 
     public void updateProfile(View view) {
-        // Retrieve updated details from UI elements
+             // Retrieve updated details from UI elements
         String updatedFirstName = firstNameEditText.getText().toString();
         String updatedLastName = lastNameEditText.getText().toString();
         String updatedPassword = passwordEdit.getText().toString();
 
-        // Perform validation
+            // Perform validation
         if (TextUtils.isEmpty(updatedFirstName) || TextUtils.isEmpty(updatedLastName) || TextUtils.isEmpty(updatedPassword)) {
-            // Show an error message or toast and return if the name fields are empty
+
+                     // Show an error message or toast and return if the name fields are empty
             Toast.makeText(this, "Please Fill all the Fields !", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Perform password validation
+           // Perform password validation
         if (!isValidPassword(updatedPassword)) {
-            // Show an error message or toast and return if the password is not valid
+                        // Show an error message or toast and return if the password is not valid
             Toast.makeText(this, "Password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Reference to the "users" collection
+            // Reference to the "users" collection
         CollectionReference usersCollection = firestore.collection("users");
 
-        // Query to find the document with the matching email
+           // Query to find the document with the matching email
         Query query = usersCollection.whereEqualTo("email", currentUserEmail);
 
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -209,7 +210,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     // Validate password
     private boolean isValidPassword(String password) {
-        // You can customize your password validation logic here
+
         return password.length() >= 6;
     }
 

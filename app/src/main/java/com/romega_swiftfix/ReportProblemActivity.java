@@ -389,7 +389,6 @@ private String getJobDescription() {
 //    }
     private void showImageOptions() {
         // Display a dialog or options to choose between camera and gallery
-        // For simplicity, I'll use a simple AlertDialog in this example
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Select Image Source")
                 .setItems(R.array.image_sources, new DialogInterface.OnClickListener() {
@@ -519,10 +518,10 @@ private String getJobDescription() {
             }
         } else if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, proceed with location selection
+                // Permission granted
                 showLocationSelection();
             } else {
-                // Permission denied, show a message or handle accordingly
+                // Permission denied
                 showToast("Location permission denied");
             }
         }

@@ -6,5 +6,7 @@
         <item name="android:backgroundTint">@color/button_background</item>
         <item name="android:textColor">@color/button_text</item>
     </style>
-
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@layout/activity_splash</item>
+    </style>
 </resources>

@@ -159,9 +159,9 @@ public class Register extends Fragment {
                 })
                 .addOnFailureListener(e -> {
                     // Firestore data addition failed
-                    // Handle the error, e.g., show an error message
+
                     showToast("Registration failed. Please try again.");
-                    // Also delete the user from Firebase Authentication to keep data consistent
+                      // delete the user from Firebase Authentication to keep data consistent
                     FirebaseAuth.getInstance().getCurrentUser().delete();
                 });
     }
@@ -177,7 +177,6 @@ public class Register extends Fragment {
                             showToast("Verification email sent. Please check your email.");
                         } else {
                             // Email verification sending failed
-                            // Handle the error, e.g., show an error message
                             showToast("Failed to send verification email.");
                         }
                     });

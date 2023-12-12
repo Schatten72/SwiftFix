@@ -29,7 +29,7 @@ public class TrackRepairmenActivity extends AppCompatActivity implements OnMapRe
     public void onMapReady(@NonNull GoogleMap googleMap) {
     map = googleMap;
 
-        LatLng latLng = new LatLng(7.4373449337030095, 80.43210958509296);
+        LatLng latLng = new LatLng(7.323915793793079, 80.59453886157856);
 
         map.addMarker(new MarkerOptions().position(latLng).title("Location"));
 

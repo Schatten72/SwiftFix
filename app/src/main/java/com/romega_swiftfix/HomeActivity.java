@@ -42,17 +42,15 @@ public class HomeActivity extends AppCompatActivity {
         // Set App Bar
         AppBar.setAppBar(getSupportFragmentManager(), R.id.fragmentContainerView3);
 
-        // Set Bottom Navigation
         BottomNavigation.setNavigationBar(getSupportFragmentManager(), R.id.fragmentContainerView2);
 
-        // Set Image Slider
         setupImageSlider();
 
 
         // Find the Welcome Message TextView
         TextView welcomeMessage = findViewById(R.id.textWelcomeMessage);
 
-        // Set initial alpha to 0 (completely transparent)
+        //  (completely transparent)
         welcomeMessage.setAlpha(0f);
 
 
@@ -77,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
         buttonViewStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Navigate to Report Problem Activity
+
                 Intent intent = new Intent(HomeActivity.this, ViewStatusActivity.class);
                 startActivity(intent);
             }

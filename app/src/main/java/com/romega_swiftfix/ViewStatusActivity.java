@@ -67,7 +67,7 @@ public class ViewStatusActivity extends AppCompatActivity implements View.OnClic
     private void fetchAndDisplayJobData() {
         String userEmail = firebaseAuth.getCurrentUser().getEmail();
 
-        // Assuming you have a 'jobs' collection in Firestore
+
         firestore.collection("jobs")
                 .whereEqualTo("userEmail", userEmail)
                 .addSnapshotListener((value, error) -> {
@@ -118,7 +118,6 @@ public class ViewStatusActivity extends AppCompatActivity implements View.OnClic
             TextView textViewStatustime = findViewById(R.id.textViewCompleteStatustime);
             textViewStatustime.setText("Time: " + assignment.getAssignmentTime());
 
-            // You can similarly update other UI elements with assignment data
         }
     }
 
@@ -141,7 +140,7 @@ public class ViewStatusActivity extends AppCompatActivity implements View.OnClic
                 Object svValue = timestampMap.get(".sv");
 
                 if (svValue instanceof String && ((String) svValue).equals("timestamp")) {
-                    // This is a placeholder for server timestamp, you may want to set a default value
+                    // placeholder for server timestamp
                     Date timestampDate = new Date();
 
                     // Format the date as needed (e.g., using SimpleDateFormat)
